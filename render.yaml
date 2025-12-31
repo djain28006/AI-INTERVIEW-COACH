@@ -2,7 +2,7 @@ services:
   - type: web
     name: ai-interview-coach
     env: python
-    buildCommand: cd $RENDER_GIT_REPO_DIR && pip install --upgrade pip && pip install -r requirements.txt
+    buildCommand: cd $RENDER_GIT_REPO_DIR && pip install --upgrade pip && pip install -r requirements.txt && python -m spacy download en_core_web_sm
     startCommand: gunicorn app:app
     envVars:
       - key: PYTHON_VERSION
